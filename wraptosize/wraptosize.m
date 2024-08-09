@@ -30,10 +30,13 @@ function txt = wraptosize(str, szstr, varargin)
 
 % Copyright 2009 Kelly Kearney
 
-Opt.style = 'cell';
-Opt.tprop = {};
+p = inputParser;
 
-Opt = parsepv(Opt, varargin);
+p.addParameter('style', 'cell');
+p.addParameter('tprop', {});
+p.parse(varargin{:});
+Opt = p.Results;
+
 
 % Wrap text in nodes
 
